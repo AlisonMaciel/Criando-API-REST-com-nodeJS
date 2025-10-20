@@ -1,12 +1,14 @@
 import { app } from './app.ts'
+import { env } from './env/index.ts'
 
-const port = process.env.PORT || 3333
+const PORT = env.PORT || process.env.PORT || 3333
 
-const numberPort = Number(port)
+const numberPort = Number(PORT)
 
 app
   .listen({
     port: numberPort,
+    host: '0.0.0.0',
   })
   .then(() => {
     console.log('Server is running')
