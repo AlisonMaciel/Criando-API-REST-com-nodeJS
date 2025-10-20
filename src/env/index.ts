@@ -4,6 +4,7 @@ import 'dotenv/config'
 const envSchema = z.object({
   DATABASE_URL: z.string(),
   PORT: z.coerce.number().default(3333),
+  DATABASE_CLIENT: z.enum(['sqlite', 'pg']),
   NODE_ENV: z.enum(['development', 'test', 'production']).default('production'),
 })
 

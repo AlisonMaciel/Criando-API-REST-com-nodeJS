@@ -4,8 +4,11 @@ import { env } from './src/env/index.ts'
 
 const knexConfig: { [env: string]: Knex.Config } = {
   development: {
-    client: 'sqlite3',
-    connection: { filename: env.DATABASE_URL },
+    client: env.DATABASE_CLIENT,
+    connection:
+      env.DATABASE_CLIENT === 'pg'
+        ? env.DATABASE_URL
+        : { filename: env.DATABASE_URL },
     useNullAsDefault: true,
     migrations: {
       extension: 'ts',
