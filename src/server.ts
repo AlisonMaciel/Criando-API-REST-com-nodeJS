@@ -1,9 +1,8 @@
 import { app } from './app.ts'
-import { env } from './env/index.ts'
 
-const PORT = env.PORT || process.env.PORT || 3333
+const port = process.env.PORT || 3333
 
-const numberPort = Number(PORT)
+const numberPort = Number(port)
 
 app
   .listen({
