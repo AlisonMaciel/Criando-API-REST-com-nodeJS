@@ -9,6 +9,7 @@
   "scripts": {
     "dev": "tsx watch src/server.ts",
     "lint": "eslint src --ext .ts --fix",
+    "prebuild": "mkdir -p tmp",
     "knex": "tsx node_modules/knex/bin/cli.js -h",
     "migrate:make": "tsx node_modules/knex/bin/cli.js migrate:make -x ts --knexfile knexfile.ts",
     "migrate:latest": "tsx node_modules/knex/bin/cli.js migrate:latest --knexfile knexfile.ts",
